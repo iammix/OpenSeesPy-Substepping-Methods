@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: OpenSeesPySubStepping
+Version: 0.1
+Summary: Sub-stepping methods for LoadControl and Displacement Control analyses
+Home-page: UNKNOWN
+Author: iammix
+Author-email: k.mixios@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7.9

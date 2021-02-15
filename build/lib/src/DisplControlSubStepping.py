@@ -2,15 +2,6 @@ import numpy as np
 import openseespy.opensees as ops
 
 def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, Dincr, LoadConstandTimeZero=False):
-    """
-    :param Nsteps: Number of Steps for the Analysis
-    :param IDctrlNode: ID of the Control Node
-    :param IDctrlDOF: DOF of Control Node for Monitoring
-    :param Dmax: Target Displacement
-    :param Dincr: 
-    :param LoadConstandTimeZero: 
-    :return: 
-    """
 
         for i in range(Nsteps):
             AnalOk = ops.analyze(1)
