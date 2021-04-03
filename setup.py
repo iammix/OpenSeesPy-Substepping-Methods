@@ -6,7 +6,7 @@ with open ("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name="OpenSeesPySubStepping",
     version="0.1",
-    author="iammix",
+    author="Konstantinos Mixios",
     author_email="k.mixios@gmail.com",
     description="Sub-stepping methods for LoadControl and Displacement Control analyses",
     classifiers=[
