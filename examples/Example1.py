@@ -1,5 +1,6 @@
 import openseespy.opensees as ops
 
+
 def main():
     """
     Create a Cantilever Problem
@@ -8,7 +9,6 @@ def main():
     ops.wipe()
     ops.model('basic', '-ndm', 2, '-ndf', 3)
 
-    
 
 
 
