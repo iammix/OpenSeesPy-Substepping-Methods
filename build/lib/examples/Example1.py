@@ -1,28 +1,6 @@
-# OpenSeesPy SubStepping Methods
-
-## Project and Purpose
-
-OpenSeesPy Sub-Stepping is a helpful package when your system is huge.  
-Division of step is fixed at this point. There are 4 sequential divisions(/2, /4, /8, /16).   
-In future release, user will have the ability to change the division factors or use the defaults.
-
-## How to use
-
-Download via pip. The only requirement is OpenSeesPy library.  
-
-
-```bash
-pip install OpenSeesPySubStepping
-```
-[Find the project release @Pypi.org](https://pypi.org/project/OpenSeesPySubStepping/)
-
-
-
-## Example
-```python
 import openseespy.opensees as ops
-from OpenSeesPySubStepping import DispControlSubStep
-from OpenSeesPySubStepping import LoadControlSubStep
+from src.DisplControlSubStepping import DispControlSubStep
+from src.LoadControlSubStepping import LoadControlSubStep
 
 
 def main():
@@ -109,5 +87,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-```

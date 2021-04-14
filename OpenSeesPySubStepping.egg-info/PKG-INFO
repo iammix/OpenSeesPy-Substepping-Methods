@@ -1,9 +1,9 @@
 Metadata-Version: 1.2
 Name: OpenSeesPySubStepping
-Version: 0.1
-Summary: Sub-stepping methods for LoadControl and Displacement Control analyses
+Version: 0.1.0
+Summary: Substepping method for LoadControl and Displacement Control Analysis
 Home-page: UNKNOWN
-Author: iammix
+Author: Konstantinos Mixios
 Author-email: k.mixios@gmail.com
 License: UNKNOWN
 Description: UNKNOWN

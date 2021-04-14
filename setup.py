@@ -5,10 +5,10 @@ with open ("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="OpenSeesPySubStepping",
-    version="0.1",
+    version="0.1.0",
     author="Konstantinos Mixios",
     author_email="k.mixios@gmail.com",
-    description="Sub-stepping methods for LoadControl and Displacement Control analyses",
+    description="Substepping method for LoadControl and Displacement Control Analysis",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

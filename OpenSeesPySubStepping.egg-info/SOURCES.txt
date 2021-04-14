@@ -4,6 +4,8 @@ OpenSeesPySubStepping.egg-info/PKG-INFO
 OpenSeesPySubStepping.egg-info/SOURCES.txt
 OpenSeesPySubStepping.egg-info/dependency_links.txt
 OpenSeesPySubStepping.egg-info/top_level.txt
+examples/Example1.py
+examples/__init__.py
 src/DisplControlSubStepping.py
 src/LoadControlSubStepping.py
 src/__init__.py
