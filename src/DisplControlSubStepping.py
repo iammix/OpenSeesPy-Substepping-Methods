@@ -2,23 +2,24 @@ import numpy as np
 import openseespy.opensees as ops
 
 
-def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, Dincr, LoadConstandTimeZero=False):
+def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero=False):
     """
     :param Nsteps: Number of Steps for the Analysis
     :param IDctrlNode: ID of the Control Node
     :param IDctrlDOF: DOF for Monitoring
     :param Dmax: Target Displacement
-    :param Dincr: Displacement Increment
     :param LoadConstandTimeZero: True if you want to define pseudotime at the end of the analysis. Default is False
     """
 
     NodeDisplacement = []
     NodeReaction = []
     committedSteps = 0
+    Dincr = Dmax / Nsteps
     for i in range(Nsteps):
+        ops.integrator('DisplacementControl', IDctrlNode, IDctrlDOF, Dincr)
         AnalOk = ops.analyze(1)
-        NodeDisplacement.append(ops.nodeDisp(IDctrlNode, IDctrlDOF))
-        NodeReaction.append(ops.nodeResponse(0, IDctrlDOF, 6))
+        #NodeDisplacement.append(ops.nodeDisp(IDctrlNode, IDctrlDOF))
+        #NodeReaction.append(ops.nodeResponse(0, IDctrlDOF, 6))
         if AnalOk != 0:
             break
         else:
