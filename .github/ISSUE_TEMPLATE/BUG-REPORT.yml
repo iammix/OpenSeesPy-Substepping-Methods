@@ -1,6 +1,6 @@
-name: 🐞 Bug
+name: Bug Report
 description: File a bug/issue
-title: "[BUG] <title>"
+title: "[BUG]: "
 labels: [Bug, Needs Triage]
 body:
 - type: checkboxes
@@ -26,11 +26,6 @@ body:
   attributes:
     label: Steps To Reproduce
     description: Steps to reproduce the behavior.
-    placeholder: |
-      1. In this environment...
-      2. With this config...
-      3. Run '...'
-      4. See error...
   validations:
     required: false
 - type: textarea
@@ -38,13 +33,11 @@ body:
     label: Environment
     description: |
       examples:
-        - **OS**: Ubuntu 20.04
-        - **Node**: 13.14.0
-        - **npm**: 7.6.3
+        - **Python**: 3.7.0
+        - **OpenSeesPy**: 3.3.0
     value: |
-        - OS:
-        - Node:
-        - npm:
+        - Python:
+        - OpenSeesPy:
     render: markdown
   validations:
     required: false
