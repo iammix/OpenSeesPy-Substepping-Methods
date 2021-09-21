@@ -9,6 +9,8 @@ setuptools.setup(
     author="Konstantinos Mixios",
     author_email="k.mixios@gmail.com",
     description="Substepping method for LoadControl and Displacement Control Analysis",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
