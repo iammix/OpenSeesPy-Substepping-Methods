@@ -15,15 +15,18 @@ jobs:
         with:
           python-version: 3.7
 
-      - name: "Install Dependencies"
+      - name: Install Dependencies
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install setuptools wheel twine
 
-      - name: "Builds and upload to PyPI"
+      - name: Builds Library
         run: |
           python3 setup.py sdist bdist_wheel
-          python3 -m twine upload --repository-url https://upload.pypi.org/legacy/ dist/* 
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+
+
+      - name: Publish Package to Pypi
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
