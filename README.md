@@ -1,4 +1,4 @@
-# OpenSeesPy SubStepping Methods
+# OpenSeesPy Sub-Stepping Methods
 
 ## Project and Purpose
 
@@ -16,7 +16,15 @@ pip install OpenSeesPySubStepping
 ```
 [Find the project release @Pypi.org](https://pypi.org/project/OpenSeesPySubStepping/)
 
-
+## Versions
+### v0.1.2.0
+- Substepping factors can be modified be the user.  
+*Note: Default substepping factors are 1/2, 1/4, 1/8, 1/16*
+### v0.1.1.2
+- Add description to pypi.org
+- Update REAME.md with example
+- Example folder
+- Add github workflow in order to publish library to pypi.org
 
 ## Example
 ```python

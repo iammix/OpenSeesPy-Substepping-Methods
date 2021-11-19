@@ -1,11 +1,13 @@
 import setuptools
+from __version__ import _version
+
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="OpenSeesPySubStepping",
-    version="0.1.1.2",
+    version=_version,
     author="Konstantinos Mixios",
     author_email="k.mixios@gmail.com",
     description="Substepping method for LoadControl and Displacement Control Analysis",

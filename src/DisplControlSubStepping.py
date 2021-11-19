@@ -2,7 +2,7 @@ import numpy as np
 import openseespy.opensees as ops
 
 
-def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero=False):
+def DispControlSubStep(Nsteps:int , IDctrlNode:int, IDctrlDOF:int, Dmax:float, fac1=2, fac2=4, fac3=8, fac4=16, LoadConstandTimeZero=False):
     """
     :param Nsteps: Number of Steps for the Analysis
     :param IDctrlNode: ID of the Control Node
@@ -10,6 +10,13 @@ def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero
     :param Dmax: Target Displacement
     :param LoadConstandTimeZero: True if you want to define pseudotime at the end of the analysis. Default is False
     """
+
+    if not fac1 < fac2:
+        raise ValueError("fac1 must be smaller than fac2")
+    if not fac2 < fac3:
+        raise ValueError("fac2 must be smaller than fac3")
+    if not fac3 < fac4:
+        raise ValueError("fac3 must be smaller than fac4")
 
     NodeDisplacement = []
     NodeReaction = []
@@ -50,11 +57,11 @@ def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero
                 if AnalOk == 0:
                     committedSteps += 1
             # substepping /2
-            if (AnalOk != 0 and Nk == 1) or (AnalOk == 0 and Nk == 4):
-                Nk = 2
+            if (AnalOk != 0 and Nk == 1) or (AnalOk == 0 and Nk == fac2):
+                Nk = fac1
                 continueFlag = 1
                 DincrReduced = Dincr / Nk
-                print("Initial Step id Divided by 2")
+                print(f"Initial Step id Divided by {fac1}")
                 ops.integrator('DisplacementControl', IDctrlNode, IDctrlDOF, DincrReduced)
                 for ik in range(Nk - 1):
                     if continueFlag == 0:
@@ -67,10 +74,10 @@ def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero
                 if AnalOk == 0:
                     retrunToInitStepFlag = True
             # substepping /4
-            if (AnalOk != 0 and Nk == 2) or (AnalOk == 0 and Nk == 8):
-                Nk = 4
+            if (AnalOk != 0 and Nk == fac1) or (AnalOk == 0 and Nk == fac3):
+                Nk = fac2
                 continueFlag = 1
-                print("Initial Step is Divided by 4")
+                print(f"Initial Step is Divided by {fac2}")
                 DincrReduced = Dincr / Nk
                 ops.integrator('DisplacementControl', IDctrlNode, IDctrlDOF, DincrReduced)
                 for i in range(Nk - 1):
@@ -84,10 +91,10 @@ def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero
                 if AnalOk == 0:
                     retrunToInitStepFlag = True
             # substepping / 8
-            if (AnalOk != 0 and Nk == 4) or (AnalOk == 0 and Nk == 16):
-                Nk = 8
+            if (AnalOk != 0 and Nk == fac2) or (AnalOk == 0 and Nk == fac4):
+                Nk = fac3
                 continueFlag = 1
-                print("Initial Step is Divided by 8")
+                print(f"Initial Step is Divided by {fac3}")
                 DincrReduced = Dincr / Nk
                 ops.integrator('DisplacementControl', IDctrlNode, IDctrlDOF, DincrReduced)
                 for i in range(Nk - 1):
@@ -101,10 +108,10 @@ def DispControlSubStep(Nsteps, IDctrlNode, IDctrlDOF, Dmax, LoadConstandTimeZero
                 if AnalOk == 0:
                     retrunToInitStepFlag = True
 
-            if (AnalOk != 0 and Nk == 8):
-                Nk = 16
+            if (AnalOk != 0 and Nk == fac3):
+                Nk = fac4
                 continueFlag = 1
-                print("Initial Step is Divided by 16")
+                print(f"Initial Step is Divided by {fac4}")
                 DincrReduced = Dincr / Nk
                 ops.integrator('DisplacementControl', IDctrlNode, IDctrlDOF, DincrReduced)
                 for i in range(Nk - 1):
