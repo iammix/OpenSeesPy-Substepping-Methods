@@ -3,8 +3,12 @@
 ## Project and Purpose
 
 OpenSeesPy Sub-Stepping is a helpful package when your system is huge.  
-Division of step is fixed at this point. There are 4 sequential divisions(/2, /4, /8, /16).   
-In future release, user will have the ability to change the division factors or use the defaults.
+There are 4 sequential divisions(/2, /4, /8, /16). From v0.1.2.0  user can define the substepping factors.
+```python
+DispControlSubStep(Nsteps:int , IDctrlNode:int, IDctrlDOF:int, Dmax:float, fac1=2, fac2=4, fac3=8, fac4=16, LoadConstandTimeZero=False)
+LoadControlSubStep(Nsteps:int, Lincr:float, fac1=2, fac2=4, fac3=8, fac4=16, LoadConstandTimeZero=False)
+```
+
 
 ## How to use
 
