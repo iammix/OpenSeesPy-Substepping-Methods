@@ -1,4 +1,5 @@
 # OpenSeesPy Sub-Stepping Methods
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6886325.svg)](https://doi.org/10.5281/zenodo.6886325)
 
 ## Project and Purpose
 
